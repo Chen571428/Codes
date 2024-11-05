@@ -25,18 +25,19 @@ if __name__=="__main__":
 from bisect import bisect_right
 def main():
         k = int(input())
-        missieHeights = list(map(int,input().split()))
+        # missieHeights = list(map(int,input().split()))
+        missieHeights = [int(x) for x in input().split()]
         missieHeights.reverse()
 
         defensedMissies = [missieHeights[0]]
 
-        for i in range(1,len(missieHeights)):
+        for i in range(1,k):
             pos = bisect_right(defensedMissies,missieHeights[i])
             if pos < len(defensedMissies):
                  defensedMissies[pos] = missieHeights[i]
             else:
                  defensedMissies.append(missieHeights[i])
-        
+
         print(len(defensedMissies))
 
 if __name__=="__main__":
