@@ -7,11 +7,6 @@ height = size(imStack,1);
 Stacking = zeros(width,height);
 
 for i  = 1:framNum
-    Stacking(:,:) = Stacking(:,:) + imStack(:,:,i); 
+    imagesc(imStack(:,:,i));
+    exportgraphics(gca,'eachGraph.gif','Append',true);
 end
-
-imagesc(Stacking)
-title("Direct Stacking");
-colorbar;
-colormap("hot");
-xlim("auto")
